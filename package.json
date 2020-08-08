@@ -1,0 +1,28 @@
+{
+  "name": "objection-gen-cli",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.js",
+    "watch": "tsc -w",
+    "build": "rm -rf dist/* && tsc"
+  },
+  "author": "Marc Deletang",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@types/lodash": "^4.14.159",
+    "@types/prompts": "^2.0.8",
+    "fs-extra": "^9.0.1",
+    "lodash": "^4.17.19",
+    "prompts": "^2.3.2"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.1",
+    "@types/node": "^14.0.27",
+    "typescript": "^3.9.7"
+  }
+}
