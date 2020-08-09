@@ -1,8 +1,8 @@
 #! /usr/bin/env node
-import { createModels } from "./modelBuilder.js";
-import { createSetup } from "./setupBuilder.js";
-import { createRelations } from "./relationBuilder.js";
-import { generate } from "./generator.js";
+import { createModels } from "./modelBuilder";
+import { createSetup } from "./setupBuilder";
+import { createRelations } from "./relationBuilder";
+import { generate } from "./generator";
 
 (async () => {
   console.log("Hi, this script will help you generate objection models");

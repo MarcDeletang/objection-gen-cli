@@ -1,9 +1,9 @@
 import { join } from "path";
 import _ from "lodash";
 import fs from "fs-extra";
-import { Model, Property, Relation, RelationType } from "./model.js";
-import { Extension } from "./setupBuilder.js";
-import { yesOrNoPrompts } from "./utils.js";
+import { Model, Property, Relation, RelationType } from "./model";
+import { Extension } from "./setupBuilder";
+import { yesOrNoPrompts } from "./utils";
 
 const generateProperties = (properties: Property[]) =>
   properties

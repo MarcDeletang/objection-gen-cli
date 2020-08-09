@@ -29,7 +29,6 @@
   },
   "author": "Marc Deletang",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "@types/lodash": "^4.14.159",
     "@types/prompts": "^2.0.8",

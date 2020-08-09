@@ -1,4 +1,4 @@
-import { abortablePrompts } from "./utils.js";
+import { abortablePrompts } from "./utils";
 
 export enum Extension {
   Typescript = ".ts",

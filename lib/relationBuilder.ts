@@ -1,12 +1,12 @@
 import _ from "lodash";
-import { abortablePrompts, yesOrNoPrompts } from "./utils.js";
+import { abortablePrompts, yesOrNoPrompts } from "./utils";
 import {
   relationTypes,
   Model,
   Relation,
   JoinType,
   RelationType,
-} from "./model.js";
+} from "./model";
 
 const createModelClass = async (models: Model[]): Promise<string> => {
   const { value } = await abortablePrompts<string>({

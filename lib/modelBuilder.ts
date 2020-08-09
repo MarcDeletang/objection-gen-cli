@@ -1,6 +1,6 @@
 import _ from "lodash";
-import { abortablePrompts, yesOrNoPrompts, PromptResponse } from "./utils.js";
-import { Property, Model } from "./model.js";
+import { abortablePrompts, yesOrNoPrompts, PromptResponse } from "./utils";
+import { Property, Model } from "./model";
 
 const createCustomType = async (): Promise<PromptResponse<string>> =>
   abortablePrompts({
