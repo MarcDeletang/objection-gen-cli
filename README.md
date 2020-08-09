@@ -105,6 +105,7 @@ All main methods should be exposed so you can use them, but at the moment it's n
 - Add relations to properties (need to resolve circular deps first)
 - Load existing models from the folder to allow relations to them (might be tricky)
 - Generate a basic knex migration file (might be tricky)
+- Remove remove all dependencies but prompts
 
 If you have any idea of things you would like to add, feel free to fill an issue !
 
