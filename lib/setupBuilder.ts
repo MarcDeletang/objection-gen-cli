@@ -1,4 +1,4 @@
-import { abortablePrompts } from "./utils";
+import { abortablePrompts, textPromptOption } from "./utils";
 
 export enum Extension {
   Typescript = ".ts",
@@ -11,13 +11,14 @@ type Setup = {
 };
 
 const askPath = async (): Promise<string> => {
-  const { value: path } = await abortablePrompts<string>({
-    type: "text",
-    name: "value",
-    message: "What is your models folder ?",
-    initial: ".",
-    format: (v) => v.replace(/\s/g, ""),
-  });
+  const { value: path } = await abortablePrompts<string>(
+    textPromptOption("What is your models folder ?", {
+      type: "text",
+      name: "value",
+      initial: ".",
+      format: (v) => v.replace(/\s/g, ""),
+    })
+  );
   return path;
 };
 

@@ -4,6 +4,16 @@ export type PromptResponse<T> = {
   value: T;
 };
 
+export const textPromptOption = (
+  message: string,
+  options: Partial<PromptObject> = {}
+): PromptObject => ({
+  type: "text",
+  name: "value",
+  message,
+  ...options,
+});
+
 export const abortablePrompts = async <T>(
   promptOptions: PromptObject
 ): Promise<PromptResponse<T>> => {

@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { abortablePrompts, yesOrNoPrompts } from "./utils";
+import { abortablePrompts, yesOrNoPrompts, textPromptOption } from "./utils";
 import {
   relationTypes,
   Model,
@@ -33,36 +33,33 @@ const createJoin = async (): Promise<JoinType> => {
     name: "value",
     message: "What is the type of the relation ?",
   });
-  const { value: from } = await abortablePrompts<string>({
-    type: "text",
-    name: "value",
-    message: "What is the key in this table ? (table name will be auto filled)",
-  });
+  const { value: from } = await abortablePrompts<string>(
+    textPromptOption(
+      "What is the key in this table ? (table name will be auto filled)"
+    )
+  );
 
-  const { value: to } = await abortablePrompts<string>({
-    type: "text",
-    name: "value",
-    message:
-      "What is the key in the foreign table ? (table name will be auto filled)",
-  });
+  const { value: to } = await abortablePrompts<string>(
+    textPromptOption(
+      "What is the key in the foreign table ? (table name will be auto filled)"
+    )
+  );
 
   if (
     type === RelationType.ManyToManyRelation ||
     type === RelationType.HasOneThroughRelation
   ) {
-    const { value: throughFrom } = await abortablePrompts<string>({
-      type: "text",
-      name: "value",
-      message:
-        "What is the value for through.from (don't for forget to specify the table) ?",
-    });
+    const { value: throughFrom } = await abortablePrompts<string>(
+      textPromptOption(
+        "What is the value for through.from (don't for forget to specify the table) ?"
+      )
+    );
 
-    const { value: throughTo } = await abortablePrompts<string>({
-      type: "text",
-      name: "value",
-      message:
-        "What is the to value for through.to (don't for forget to specify the table) ?",
-    });
+    const { value: throughTo } = await abortablePrompts<string>(
+      textPromptOption(
+        "What is the to value for through.to (don't for forget to specify the table) ?"
+      )
+    );
     return {
       type,
       from,
@@ -77,14 +74,13 @@ const createJoin = async (): Promise<JoinType> => {
 };
 
 const createRelation = async (models: Model[]): Promise<Relation> => {
-  const { value: name } = await abortablePrompts<string>({
-    type: "text",
-    name: "value",
-    message: "What is your relation name ?",
-    validate: (v) =>
-      v.replace(/\s/g, "") ? true : "Your relation must have a name",
-    format: (v) => v.replace(/\s/g, ""),
-  });
+  const { value: name } = await abortablePrompts<string>(
+    textPromptOption("What is your relation name ?", {
+      validate: (v) =>
+        v.replace(/\s/g, "") ? true : "Your relation must have a name",
+      format: (v) => v.replace(/\s/g, ""),
+    })
+  );
   const modelClass = await createModelClass(models);
   const join = await createJoin();
   return {

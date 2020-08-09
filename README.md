@@ -1,3 +1,6 @@
+[![Known Vulnerabilities](https://snyk.io/test/github/MarcDeletang/objection-gen-cli/badge.svg?targetFile=package.json)](https://snyk.io/test/github/MarcDeletang/objection-gen-cli?targetFile=package.json)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5feb4d0abeeb8a8b319e/maintainability)](https://codeclimate.com/github/MarcDeletang/objection-gen-cli/maintainability)
+
 # objection-gen-cli
 
 Objection model generator
@@ -57,7 +60,7 @@ export class User extends Model {
 ```
 </details>
 
-## Install:
+## Install as dev dependency:
 
 ```
 yarn add -D objection-gen-cli
@@ -75,7 +78,7 @@ npm install -D objection-gen-cli
 npx objection-cli
 ```
 
-Or:
+Or (after install):
 
 ```
 yarn run objection-cli

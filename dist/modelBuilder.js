@@ -51,11 +51,7 @@ var lodash_1 = __importDefault(require("lodash"));
 var utils_1 = require("./utils");
 var createCustomType = function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
-        return [2 /*return*/, utils_1.abortablePrompts({
-                type: "text",
-                name: "value",
-                message: "Enter your custom property type, it will be written as is",
-            })];
+        return [2 /*return*/, utils_1.abortablePrompts(utils_1.textPromptOption("Enter your custom property type, it will be written as is"))];
     });
 }); };
 var createType = function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -88,15 +84,12 @@ var createProperty = function () { return __awaiter(void 0, void 0, void 0, func
     var name, optional, type;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, utils_1.abortablePrompts({
-                    type: "text",
-                    name: "value",
-                    message: "What is your property name ?",
+            case 0: return [4 /*yield*/, utils_1.abortablePrompts(utils_1.textPromptOption("What is your property name ?", {
                     validate: function (v) {
                         return v.replace(/\s/g, "") ? true : "Your property must have a name";
                     },
                     format: function (v) { return v.replace(/\s/g, ""); },
-                })];
+                }))];
             case 1:
                 name = (_a.sent()).value;
                 return [4 /*yield*/, utils_1.yesOrNoPrompts("Is this property optionnal ? y/N", "n")];
@@ -136,23 +129,17 @@ exports.createModels = function (models) {
             switch (_a.label) {
                 case 0:
                     console.log("Its model time !");
-                    return [4 /*yield*/, utils_1.abortablePrompts({
-                            type: "text",
-                            name: "value",
-                            message: "What is your model name ? (will be use as is in filename)",
+                    return [4 /*yield*/, utils_1.abortablePrompts(utils_1.textPromptOption("What is your model name ? (will be use as is in filename)", {
                             validate: function (v) {
                                 return v.replace(/\s/g, "") ? true : "Your model must have a name";
                             },
                             format: function (v) { return v.replace(/\s/g, ""); },
-                        })];
+                        }))];
                 case 1:
                     name = (_a.sent()).value;
-                    return [4 /*yield*/, utils_1.abortablePrompts({
-                            type: "text",
-                            name: "value",
+                    return [4 /*yield*/, utils_1.abortablePrompts(utils_1.textPromptOption("What is your table name ?", {
                             initial: lodash_1.default.snakeCase(name).toLowerCase(),
-                            message: "What is your table name ?",
-                        })];
+                        }))];
                 case 2:
                     table = (_a.sent()).value;
                     console.log("Its properties time !");

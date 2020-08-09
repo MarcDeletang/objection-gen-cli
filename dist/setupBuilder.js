@@ -47,13 +47,12 @@ var askPath = function () { return __awaiter(void 0, void 0, void 0, function ()
     var path;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, utils_1.abortablePrompts({
+            case 0: return [4 /*yield*/, utils_1.abortablePrompts(utils_1.textPromptOption("What is your models folder ?", {
                     type: "text",
                     name: "value",
-                    message: "What is your models folder ?",
                     initial: ".",
                     format: function (v) { return v.replace(/\s/g, ""); },
-                })];
+                }))];
             case 1:
                 path = (_a.sent()).value;
                 return [2 /*return*/, path];

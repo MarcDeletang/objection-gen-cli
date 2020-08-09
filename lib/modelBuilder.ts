@@ -1,13 +1,18 @@
 import _ from "lodash";
-import { abortablePrompts, yesOrNoPrompts, PromptResponse } from "./utils";
+import {
+  abortablePrompts,
+  yesOrNoPrompts,
+  textPromptOption,
+  PromptResponse,
+} from "./utils";
 import { Property, Model } from "./model";
 
 const createCustomType = async (): Promise<PromptResponse<string>> =>
-  abortablePrompts({
-    type: "text",
-    name: "value",
-    message: "Enter your custom property type, it will be written as is",
-  });
+  abortablePrompts(
+    textPromptOption(
+      "Enter your custom property type, it will be written as is"
+    )
+  );
 
 const createType = async (): Promise<PromptResponse<string>> => {
   const { value } = await abortablePrompts<string>({
@@ -30,14 +35,13 @@ const createType = async (): Promise<PromptResponse<string>> => {
 };
 
 const createProperty = async (): Promise<Property> => {
-  const { value: name } = await abortablePrompts<string>({
-    type: "text",
-    name: "value",
-    message: "What is your property name ?",
-    validate: (v) =>
-      v.replace(/\s/g, "") ? true : "Your property must have a name",
-    format: (v) => v.replace(/\s/g, ""),
-  });
+  const { value: name } = await abortablePrompts<string>(
+    textPromptOption("What is your property name ?", {
+      validate: (v) =>
+        v.replace(/\s/g, "") ? true : "Your property must have a name",
+      format: (v) => v.replace(/\s/g, ""),
+    })
+  );
 
   const optional = await yesOrNoPrompts(
     "Is this property optionnal ? y/N",
@@ -61,20 +65,21 @@ const createProperties = async (
 
 export const createModels = async (models: Model[] = []): Promise<Model[]> => {
   console.log("Its model time !");
-  const { value: name } = await abortablePrompts<string>({
-    type: "text",
-    name: "value",
-    message: "What is your model name ? (will be use as is in filename)",
-    validate: (v) =>
-      v.replace(/\s/g, "") ? true : "Your model must have a name",
-    format: (v) => v.replace(/\s/g, ""),
-  });
-  const { value: table } = await abortablePrompts<string>({
-    type: "text",
-    name: "value",
-    initial: _.snakeCase(name).toLowerCase(),
-    message: "What is your table name ?",
-  });
+  const { value: name } = await abortablePrompts<string>(
+    textPromptOption(
+      "What is your model name ? (will be use as is in filename)",
+      {
+        validate: (v) =>
+          v.replace(/\s/g, "") ? true : "Your model must have a name",
+        format: (v) => v.replace(/\s/g, ""),
+      }
+    )
+  );
+  const { value: table } = await abortablePrompts<string>(
+    textPromptOption("What is your table name ?", {
+      initial: _.snakeCase(name).toLowerCase(),
+    })
+  );
   console.log("Its properties time !");
   const properties = await createProperties();
 

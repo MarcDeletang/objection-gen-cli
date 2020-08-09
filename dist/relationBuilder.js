@@ -97,34 +97,18 @@ var createJoin = function () { return __awaiter(void 0, void 0, void 0, function
                 })];
             case 1:
                 type = (_a.sent()).value;
-                return [4 /*yield*/, utils_1.abortablePrompts({
-                        type: "text",
-                        name: "value",
-                        message: "What is the key in this table ? (table name will be auto filled)",
-                    })];
+                return [4 /*yield*/, utils_1.abortablePrompts(utils_1.textPromptOption("What is the key in this table ? (table name will be auto filled)"))];
             case 2:
                 from = (_a.sent()).value;
-                return [4 /*yield*/, utils_1.abortablePrompts({
-                        type: "text",
-                        name: "value",
-                        message: "What is the key in the foreign table ? (table name will be auto filled)",
-                    })];
+                return [4 /*yield*/, utils_1.abortablePrompts(utils_1.textPromptOption("What is the key in the foreign table ? (table name will be auto filled)"))];
             case 3:
                 to = (_a.sent()).value;
                 if (!(type === model_1.RelationType.ManyToManyRelation ||
                     type === model_1.RelationType.HasOneThroughRelation)) return [3 /*break*/, 6];
-                return [4 /*yield*/, utils_1.abortablePrompts({
-                        type: "text",
-                        name: "value",
-                        message: "What is the value for through.from (don't for forget to specify the table) ?",
-                    })];
+                return [4 /*yield*/, utils_1.abortablePrompts(utils_1.textPromptOption("What is the value for through.from (don't for forget to specify the table) ?"))];
             case 4:
                 throughFrom = (_a.sent()).value;
-                return [4 /*yield*/, utils_1.abortablePrompts({
-                        type: "text",
-                        name: "value",
-                        message: "What is the to value for through.to (don't for forget to specify the table) ?",
-                    })];
+                return [4 /*yield*/, utils_1.abortablePrompts(utils_1.textPromptOption("What is the to value for through.to (don't for forget to specify the table) ?"))];
             case 5:
                 throughTo = (_a.sent()).value;
                 return [2 /*return*/, {
@@ -144,15 +128,12 @@ var createRelation = function (models) { return __awaiter(void 0, void 0, void 0
     var name, modelClass, join;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, utils_1.abortablePrompts({
-                    type: "text",
-                    name: "value",
-                    message: "What is your relation name ?",
+            case 0: return [4 /*yield*/, utils_1.abortablePrompts(utils_1.textPromptOption("What is your relation name ?", {
                     validate: function (v) {
                         return v.replace(/\s/g, "") ? true : "Your relation must have a name";
                     },
                     format: function (v) { return v.replace(/\s/g, ""); },
-                })];
+                }))];
             case 1:
                 name = (_a.sent()).value;
                 return [4 /*yield*/, createModelClass(models)];

@@ -2,6 +2,8 @@
   "name": "objection-gen-cli",
   "version": "0.0.6",
   "description": "An objection models generator",
+  "author": "Marc Deletang",
+  "license": "ISC",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
@@ -21,14 +23,14 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "node dist/index.js",
+    "test:ci": "jest --ci --coverage && codecov",
+    "test:coverage": "jest --coverage",
+    "start": "node dist/cli.js",
     "watch": "tsc -w",
     "build": "rm -rf dist/* && tsc --skipLibCheck",
-    "format": "prettier --write ./lib ./__tests__",
-    "p": "yarn format && yarn test && yarn build && yarn publish"
+    "lint": "prettier --write ./lib ./__tests__",
+    "p": "yarn lint && yarn test && yarn build && yarn publish"
   },
-  "author": "Marc Deletang",
-  "license": "ISC",
   "dependencies": {
     "@types/lodash": "^4.14.159",
     "@types/prompts": "^2.0.8",
