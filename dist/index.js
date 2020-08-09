@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import { createSetup } from './setupBuilder.js';
 import { generate } from './generator.js';
 import { RelationType } from './model.js';

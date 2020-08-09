@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import { createModels } from './modelBuilder.js';
 import { createSetup } from './setupBuilder.js';
 import { createRelations } from './relationBuilder.js';
