@@ -11,8 +11,8 @@ This package allow you to generate objection model class.
 import { Model } from 'objection';
 
 export class User extends Model {
-public id: number;
-public firstName?: string;
+    public id: number;
+    public firstName?: string;
 
     static get tableName() {
         return 'users';
@@ -72,7 +72,7 @@ npm install -D objection-gen-cli
 ## Usage:
 
 ```
-npm run objection-cli
+npx objection-cli
 ```
 
 Or:
@@ -85,7 +85,7 @@ yarn run objection-cli
 
 This script will generate a prompt that will guide you in building your models.
 
-Note: The models generated should have a readable look. I dont plan to allow to configure the syntax (quote, commas ...). Your linter should take care of that
+Note: The models generated should have a readable look. I dont plan to allow to configure the syntax (quote, commas ...). Your linter should take care of that.
 
 ## Extend it:
 
@@ -105,3 +105,9 @@ All main methods should be exposed so you can use them, but at the moment it's n
 If you have any idea of things you would like to add, feel free to fill an issue !
 
 I hope you enjoy it :)
+
+## Other
+
+[Objection relations docs](https://vincit.github.io/objection.js/guide/relations.html)
+
+Thanks a lot for making objection guys, it's an awesome tool !

@@ -7,7 +7,7 @@ import { yesOrNoPrompts } from "./utils.js";
 
 const generateProperties = (properties: Property[]) =>
   properties
-    .map((p) => `        public ${p.name}${p.optional ? "?" : ""}: ${p.type};`)
+    .map((p) => `    public ${p.name}${p.optional ? "?" : ""}: ${p.type};`)
     .join("\n");
 
 // TODO later maybe

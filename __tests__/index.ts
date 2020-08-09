@@ -1,3 +1,11 @@
+import { RelationType } from "../lib/model";
+
+describe("Foo", () => {
+  test("foo", () => {
+    expect(true).toBeTruthy();
+  });
+});
+
 const sample = [
   {
     name: "user",

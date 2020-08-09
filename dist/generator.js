@@ -4,7 +4,7 @@ import fs from "fs-extra";
 import { RelationType } from "./model.js";
 import { yesOrNoPrompts } from "./utils.js";
 const generateProperties = (properties) => properties
-    .map((p) => `        public ${p.name}${p.optional ? "?" : ""}: ${p.type};`)
+    .map((p) => `    public ${p.name}${p.optional ? "?" : ""}: ${p.type};`)
     .join("\n");
 // TODO later maybe
 // const generateRelationProperties = (relations: Relation[]) =>
