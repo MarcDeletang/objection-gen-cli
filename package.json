@@ -1,17 +1,24 @@
 {
   "name": "objection-gen-cli",
-  "version": "0.0.2",
-  "description": "",
+  "version": "0.0.5",
+  "description": "An objection models generator",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarcDeletang/objection-gen-cli.git"
+  },
+  "homepage": "https://github.com/MarcDeletang/objection-gen-cli#readme",
   "bin": {
-    "objection-cli": "./dist/index.js"
+    "objection-cli": "./dist/cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
     "watch": "tsc -w",
-    "build": "rm -rf dist/* && tsc"
+    "build": "rm -rf dist/* && tsc",
+    "format": "prettier --write ./lib",
+    "p": "yarn format && yarn build && yarn publish"
   },
   "author": "Marc Deletang",
   "license": "ISC",
@@ -26,6 +33,7 @@
   "devDependencies": {
     "@types/fs-extra": "^9.0.1",
     "@types/node": "^14.0.27",
+    "prettier": "^2.0.5",
     "typescript": "^3.9.7"
   }
 }

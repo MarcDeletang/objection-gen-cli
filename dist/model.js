@@ -6,9 +6,11 @@ export var RelationType;
     RelationType["ManyToManyRelation"] = "ManyToManyRelation";
     RelationType["HasOneThroughRelation"] = "HasOneThroughRelation";
 })(RelationType || (RelationType = {}));
-export const relationTypes = [RelationType.BelongsToOneRelation,
+export const relationTypes = [
+    RelationType.BelongsToOneRelation,
     RelationType.HasManyRelation,
     RelationType.HasOneRelation,
     RelationType.ManyToManyRelation,
-    RelationType.HasOneThroughRelation];
+    RelationType.HasOneThroughRelation,
+];
 //# sourceMappingURL=model.js.map

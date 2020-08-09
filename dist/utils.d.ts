@@ -1,8 +1,8 @@
-import { PromptObject } from 'prompts';
+import { PromptObject } from "prompts";
 export declare type PromptResponse<T> = {
     value: T;
 };
 export declare const abortablePrompts: <T>(promptOptions: PromptObject) => Promise<PromptResponse<T>>;
-declare type YesOrNoInitialValue = 'y' | 'n';
+declare type YesOrNoInitialValue = "y" | "n";
 export declare const yesOrNoPrompts: (message: string, initial: YesOrNoInitialValue) => Promise<boolean>;
 export {};

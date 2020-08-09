@@ -28,7 +28,7 @@ export declare type Relation = {
     name: string;
     modelClass: string;
     join: JoinType;
-    addToProperties: boolean;
+    addToProperties?: boolean;
 };
 export declare type Model = {
     name: string;

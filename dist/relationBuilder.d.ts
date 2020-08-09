@@ -1,2 +1,2 @@
-import { Model } from './model.js';
+import { Model } from "./model.js";
 export declare const createRelations: (models?: Model[]) => Promise<Model[]>;
