@@ -1,6 +1,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/MarcDeletang/objection-gen-cli/badge.svg?targetFile=package.json)](https://snyk.io/test/github/MarcDeletang/objection-gen-cli?targetFile=package.json)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5feb4d0abeeb8a8b319e/maintainability)](https://codeclimate.com/github/MarcDeletang/objection-gen-cli/maintainability)
 [![codecov](https://codecov.io/gh/MarcDeletang/objection-gen-cli/branch/master/graph/badge.svg)](https://codecov.io/gh/MarcDeletang/objection-gen-cli)
+[![Build Status](https://travis-ci.org/MarcDeletang/objection-gen-cli.svg?branch=master)](https://travis-ci.org/MarcDeletang/objection-gen-cli)
 
 # objection-gen-cli
 
