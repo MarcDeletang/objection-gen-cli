@@ -21,7 +21,7 @@ const createType = async (): Promise<PromptResponse<string>> => {
       { title: "string", value: "string" },
       { title: "number", value: "number" },
       { title: "boolean", value: "boolean" },
-      { title: "date", value: "date" },
+      { title: "date", value: "Date" },
       { title: "other", value: "other" },
     ],
     initial: 0,

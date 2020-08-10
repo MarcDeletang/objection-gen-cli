@@ -27,7 +27,7 @@ export const abortablePrompts = async <T>(
       initial: "n",
     });
     if (!abort || abort.toLowerCase() === "y") {
-      process.exit(0);
+      return process.exit(0);
     }
     return abortablePrompts(promptOptions);
   }
@@ -46,7 +46,7 @@ export const yesOrNoPrompts = async (
     message,
     initial,
   });
-  if (!value || value.toLowerCase() === "n") {
+  if (value.toLowerCase() === "n") {
     return false;
   }
   if (value.toLowerCase() === "y") {

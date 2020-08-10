@@ -24,7 +24,7 @@
   "scripts": {
     "test": "jest",
     "test:ci": "jest --ci --coverage && codecov",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "jest --coverage && firefox coverage/lcov-report/index.html &",
     "start": "node dist/cli.js",
     "watch": "tsc -w",
     "build": "rm -rf dist/* && tsc --skipLibCheck",

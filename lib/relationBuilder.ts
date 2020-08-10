@@ -87,8 +87,6 @@ const createRelation = async (models: Model[]): Promise<Relation> => {
     name,
     modelClass,
     join,
-    // Feature Not activated
-    addToProperties: false,
   };
 };
 
