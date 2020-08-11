@@ -1,6 +1,6 @@
 {
   "name": "objection-gen-cli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "An objection models generator",
   "author": "Marc Deletang",
   "license": "ISC",
