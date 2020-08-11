@@ -12,11 +12,6 @@ const utils_1 = require("./utils");
 const generateProperties = (properties) => properties
     .map((p) => `    public ${p.name}${p.optional ? "?" : ""}: ${p.type};`)
     .join("\n");
-// TODO later maybe
-// const generateRelationProperties = (relations: Relation[]) =>
-//     relations.filter(r => r.addToProperties)
-//         .map(r => `    public ${r.name}: ${_.upperFirst(r.modelClass)}${hasManyRelation(r.join.type) ? '[]': ''};`)
-//         .join('\n');
 const generateRelationRequire = (model) => lodash_1.default.uniqBy(model.relations.filter((r) => r.modelClass !== model.name), "modelClass")
     .map((r) => `        const { ${lodash_1.default.upperFirst(r.modelClass)} } = require('./${r.modelClass}');`)
     .join("\n");

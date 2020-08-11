@@ -10,12 +10,6 @@ const generateProperties = (properties: Property[]) =>
     .map((p) => `    public ${p.name}${p.optional ? "?" : ""}: ${p.type};`)
     .join("\n");
 
-// TODO later maybe
-// const generateRelationProperties = (relations: Relation[]) =>
-//     relations.filter(r => r.addToProperties)
-//         .map(r => `    public ${r.name}: ${_.upperFirst(r.modelClass)}${hasManyRelation(r.join.type) ? '[]': ''};`)
-//         .join('\n');
-
 const generateRelationRequire = (model: Model) =>
   _.uniqBy(
     model.relations.filter((r) => r.modelClass !== model.name),

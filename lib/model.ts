@@ -49,7 +49,6 @@ export type Relation = {
   name: string;
   modelClass: string;
   join: JoinType;
-  addToProperties?: boolean;
 };
 
 export type Model = {

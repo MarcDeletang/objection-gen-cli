@@ -6,6 +6,7 @@ import {
   PromptResponse,
 } from "./utils";
 import { Property, Model } from "./model";
+import { Extension } from "./setupBuilder";
 
 const createCustomType = async (): Promise<PromptResponse<string>> =>
   abortablePrompts(
@@ -63,7 +64,10 @@ const createProperties = async (
   return [...properties, { name, type, optional }];
 };
 
-export const createModels = async (models: Model[] = []): Promise<Model[]> => {
+export const createModels = async (
+  extenstion: Extension,
+  models: Model[] = []
+): Promise<Model[]> => {
   console.log("Its model time !");
   const { value: name } = await abortablePrompts<string>(
     textPromptOption(
@@ -80,13 +84,16 @@ export const createModels = async (models: Model[] = []): Promise<Model[]> => {
       initial: _.snakeCase(name).toLowerCase(),
     })
   );
-  console.log("Its properties time !");
-  const properties = await createProperties();
+  let properties: Property[] = [];
+  if (extenstion === Extension.Typescript) {
+    console.log("Its properties time !");
+    properties = await createProperties();
+  }
 
   while (
     await yesOrNoPrompts("Do you want to create another model ? Y/n", "y")
   ) {
-    return createModels([
+    return createModels(extenstion, [
       ...models,
       { name, table, properties, relations: [] },
     ]);

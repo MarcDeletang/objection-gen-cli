@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createModels = void 0;
 const lodash_1 = __importDefault(require("lodash"));
 const utils_1 = require("./utils");
+const setupBuilder_1 = require("./setupBuilder");
 const createCustomType = async () => utils_1.abortablePrompts(utils_1.textPromptOption("Enter your custom property type, it will be written as is"));
 const createType = async () => {
     const { value } = await utils_1.abortablePrompts({
@@ -42,7 +43,7 @@ const createProperties = async (properties = []) => {
     }
     return [...properties, { name, type, optional }];
 };
-exports.createModels = async (models = []) => {
+exports.createModels = async (extenstion, models = []) => {
     console.log("Its model time !");
     const { value: name } = await utils_1.abortablePrompts(utils_1.textPromptOption("What is your model name ? (will be use as is in filename)", {
         validate: (v) => v.replace(/\s/g, "") ? true : "Your model must have a name",
@@ -51,10 +52,13 @@ exports.createModels = async (models = []) => {
     const { value: table } = await utils_1.abortablePrompts(utils_1.textPromptOption("What is your table name ?", {
         initial: lodash_1.default.snakeCase(name).toLowerCase(),
     }));
-    console.log("Its properties time !");
-    const properties = await createProperties();
+    let properties = [];
+    if (extenstion === setupBuilder_1.Extension.Typescript) {
+        console.log("Its properties time !");
+        properties = await createProperties();
+    }
     while (await utils_1.yesOrNoPrompts("Do you want to create another model ? Y/n", "y")) {
-        return exports.createModels([
+        return exports.createModels(extenstion, [
             ...models,
             { name, table, properties, relations: [] },
         ]);
