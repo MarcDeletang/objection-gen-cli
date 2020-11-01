@@ -32,7 +32,7 @@
     "p": "yarn lint && yarn test && yarn build && yarn publish"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.160",
+    "@types/lodash": "^4.14.162",
     "@types/prompts": "^2.4.0",
     "fs-extra": "^9.0.1",
     "lodash": "^4.17.20",
